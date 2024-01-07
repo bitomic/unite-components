@@ -35,5 +35,6 @@
     "jest-cli": "^29.7.0",
     "puppeteer": "21.1.1"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "packageManager": "yarn@4.0.2"
 }

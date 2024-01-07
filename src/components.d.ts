@@ -20,6 +20,13 @@ export namespace Components {
          */
         "middle": string;
     }
+    interface PuButton {
+        "color": 'default' | 'purple' | 'red';
+        "disabled": boolean;
+        "href": string | null;
+        "icon": boolean;
+        "text": string;
+    }
 }
 declare global {
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
@@ -28,8 +35,15 @@ declare global {
         prototype: HTMLMyComponentElement;
         new (): HTMLMyComponentElement;
     };
+    interface HTMLPuButtonElement extends Components.PuButton, HTMLStencilElement {
+    }
+    var HTMLPuButtonElement: {
+        prototype: HTMLPuButtonElement;
+        new (): HTMLPuButtonElement;
+    };
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
+        "pu-button": HTMLPuButtonElement;
     }
 }
 declare namespace LocalJSX {
@@ -47,8 +61,16 @@ declare namespace LocalJSX {
          */
         "middle"?: string;
     }
+    interface PuButton {
+        "color"?: 'default' | 'purple' | 'red';
+        "disabled"?: boolean;
+        "href"?: string | null;
+        "icon"?: boolean;
+        "text"?: string;
+    }
     interface IntrinsicElements {
         "my-component": MyComponent;
+        "pu-button": PuButton;
     }
 }
 export { LocalJSX as JSX };
@@ -56,6 +78,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "pu-button": LocalJSX.PuButton & JSXBase.HTMLAttributes<HTMLPuButtonElement>;
         }
     }
 }
