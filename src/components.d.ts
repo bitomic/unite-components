@@ -27,6 +27,13 @@ export namespace Components {
         "icon": boolean;
         "text": string;
     }
+    interface PuTachieBox {
+        "color": 'attacker' | 'all-rounder' | 'defender' | 'speedster' | 'supporter';
+        "disabled": boolean;
+        "pokemon": string;
+        "team": 'orange' | 'purple';
+        "trainer": string;
+    }
 }
 declare global {
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
@@ -41,9 +48,16 @@ declare global {
         prototype: HTMLPuButtonElement;
         new (): HTMLPuButtonElement;
     };
+    interface HTMLPuTachieBoxElement extends Components.PuTachieBox, HTMLStencilElement {
+    }
+    var HTMLPuTachieBoxElement: {
+        prototype: HTMLPuTachieBoxElement;
+        new (): HTMLPuTachieBoxElement;
+    };
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
         "pu-button": HTMLPuButtonElement;
+        "pu-tachie-box": HTMLPuTachieBoxElement;
     }
 }
 declare namespace LocalJSX {
@@ -68,9 +82,17 @@ declare namespace LocalJSX {
         "icon"?: boolean;
         "text"?: string;
     }
+    interface PuTachieBox {
+        "color"?: 'attacker' | 'all-rounder' | 'defender' | 'speedster' | 'supporter';
+        "disabled"?: boolean;
+        "pokemon"?: string;
+        "team"?: 'orange' | 'purple';
+        "trainer"?: string;
+    }
     interface IntrinsicElements {
         "my-component": MyComponent;
         "pu-button": PuButton;
+        "pu-tachie-box": PuTachieBox;
     }
 }
 export { LocalJSX as JSX };
@@ -79,6 +101,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
             "pu-button": LocalJSX.PuButton & JSXBase.HTMLAttributes<HTMLPuButtonElement>;
+            "pu-tachie-box": LocalJSX.PuTachieBox & JSXBase.HTMLAttributes<HTMLPuTachieBoxElement>;
         }
     }
 }

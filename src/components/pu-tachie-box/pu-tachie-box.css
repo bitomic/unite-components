@@ -1,0 +1,99 @@
+.tachie-box {
+  --all-rounder: #c35fd3;
+  --attacker: #f16c38;
+  --defender: #aced5b;
+  --speedster: #29a5e3;
+  --supporter: #fecc51;
+
+	align-items: center;
+	border-radius: 5px;
+	display: flex;
+	flex-direction: column;
+	font-family: 'Exo 2';
+	height: 270px;
+	overflow: hidden;
+	position: relative;
+	width: 165px;
+}
+.tb--all-rounder {
+  --color: var(--all-rounder);
+}
+.tb--attacker {
+  --color: var(--attacker);
+}
+.tb--defender {
+  --color: var(--defender);
+}
+.tb--speedster {
+  --color: var(--speedster);
+}
+.tb--supporter {
+  --color: var(--supporter);
+}
+.tb--orange {
+	--border: #f7b9a6;
+	--name: #ff7d29;
+	--outline: #7f56f9;
+	--separator: #e96714;
+}
+.tb--purple {
+	--border: #b8b3f8;
+	--name: #7f56f9;
+	--outline: #ff7d29;
+	--separator: #723eee;
+}
+.tachie-box:hover {
+	outline: 4px solid var(--outline);
+}
+.tb__image {
+	--background: var( --color, #fff );
+  align-items: center;
+  background-blend-mode: hard-light, overlay;
+  background-color: var(--background);
+  background-image: var(--checkers), var(--dots);
+  background-position: -25px -25px, calc(-50%) calc(100% - 100px);
+  background-repeat: repeat, no-repeat;
+  background-size: 150px, 250px;
+	border: 3px solid var(--border);
+	border-radius: 5px;
+  display: flex;
+	height: 230px;
+  justify-content: center;
+	overflow: hidden;
+	position: relative;
+	width: 160px;
+}
+.tb__data {
+	--transparent-size: 30px;
+	--border-size: 40px;
+	--blur: 2px;
+	background-image: linear-gradient(
+		-175deg,
+		transparent,
+		transparent var(--transparent-size),
+		var(--separator) calc(var(--transparent-size) + var(--blur)),
+		var(--separator) var(--border-size),
+		var(--name) calc(var(--border-size) + var(--blur)),
+		var(--name)
+	);
+	bottom: 0;
+	display: flex;
+	flex-direction: column;
+	height: 75px;
+	justify-content: flex-end;
+	padding-bottom: 8px;
+	padding-left: 10px;
+	position: absolute;
+	width: 100%;
+}
+.tb__pokemon {
+	font-size: 1.2em;
+	font-weight: bold;
+}
+.tb__trainer {
+	color: #000;
+	font-size: 1.1em;
+}
+.tb--disabled .tb__image {
+	filter: grayscale(1);
+}
